@@ -1,6 +1,18 @@
 const inputContent=document.getElementById("input-box");
 const listContent=document.getElementById("list-container");
-const button=document.querySelector(button);
+const button=document.querySelector('button');
+const task=document.getElementById("task1");
+
+
+/* 
+button.addEventListener('click', e => {
+    console.log('e gives the event listener object:', e)
+    console.log('e.target gives the selected element: ', e.target)
+    console.log(
+      'e.target.textContent gives content of selected element: ',
+      e.target.textContent
+    )
+  }) */
 
 function addValue(){
     if (inputContent.value===""){
@@ -13,6 +25,7 @@ function addValue(){
         //add the cross icon in a span tag
         let span=document.createElement("span");
         span.innerHTML="\u00d7";
+       // xButton.innerHTML="X";
         li.appendChild(span);
         console.log("Element Created");
     }
@@ -20,12 +33,12 @@ function addValue(){
 }
 
 //the function that will remove the tasks
-listContent.addEventListener("click",function(e){
-    /* if (e.target.tagName==="li"){
+listContent.addEventListener("click",e=>{
+    if (e.target.tagName==="LI"){
         e.target.classList.toggle("checked");
-    }else if(e.target.tagName==="span"){
+    }else if(e.target.tagName==="SPAN"){
         e.target.parentElement.remove();
-    } */
+    } 
     console.log("cliked")
 
 });
