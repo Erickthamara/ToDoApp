@@ -28,6 +28,7 @@ function addValue(){
        // xButton.innerHTML="X";
         li.appendChild(span);
         console.log("Element Created");
+        saveData();
     }
     inputContent.value="";
 }
@@ -36,9 +37,25 @@ function addValue(){
 listContent.addEventListener("click",e=>{
     if (e.target.tagName==="LI"){
         e.target.classList.toggle("checked");
+        saveData()
     }else if(e.target.tagName==="SPAN"){
         e.target.parentElement.remove();
+        saveData()
     } 
     console.log("cliked")
 
 });
+
+//function to save tasks on browser after refreshing
+
+function saveData(){
+    localStorage.setItem("data",listContent.innerHTML);
+}
+
+//show tasks on opening the page
+function showTask(){
+    listContent.innerHTML=localStorage.getItem("data");
+}
+
+//whenever the script is called it will run
+showTask()
